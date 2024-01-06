@@ -9,14 +9,28 @@ import java.awt.event.ActionListener;
 
 public class GUI implements ActionListener
 {
+	//open window
 	JFrame window;
+
+	//text
 	JTextArea textArea;
 	JScrollPane scrollPane;
+
+	//top menu bar
 	JMenuBar menuBar;
 	JMenu menuFile, menuEdit, menuFormat, menuCol;
+
+	//file menu
 	JMenuItem iNew, iOpen, iSave, iSaveAs, iExit;
 
+	//format menu
+	JMenuItem wordWrap, font, fontSize;
+	//font menu
+	//fontSize menu
+
+
 	Function_file file = new Function_file(this);
+	Function_format forMat = new Function_format(this);
 
 	public static void main(String[] args)
 	{
@@ -29,6 +43,7 @@ public class GUI implements ActionListener
 		createTextArea();
 		createMenuBar();
 		createFileMenu();
+		createFormatMenu();
 		window.setVisible(true);
 	}
 
@@ -93,7 +108,23 @@ public class GUI implements ActionListener
 		iExit.setActionCommand("Exit");
 		menuFile.add(iExit);
 	}
+	public void createFormatMenu()
+	{
+		wordWrap = new JMenuItem("Word Wrap");
+		wordWrap.addActionListener(this);
+		wordWrap.setActionCommand("WordWrap");
+		menuFormat.add(wordWrap);
 
+		font = new JMenuItem("Font");
+		font.addActionListener(this);
+		font.setActionCommand("Font");
+		menuFormat.add(font);
+
+		fontSize = new JMenuItem("Font Size");
+		fontSize.addActionListener(this);
+		fontSize.setActionCommand("FontSize");
+		menuFormat.add(fontSize);
+	}
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		String command = e.getActionCommand();
@@ -104,6 +135,7 @@ public class GUI implements ActionListener
 			case "Open":file.open(); break;
 			case "Save":file.save(); break;
 			case "SaveAs":file.saveAs(); break;
+			case "Exit":file.exit(); break;
 		}
 	}
 }

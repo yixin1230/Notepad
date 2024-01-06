@@ -39,8 +39,8 @@ public class Function_file
 			String line = br.readLine(); //br:Line break element
 			while (line != null)
 			{
+				gui.textArea.append(line + "\n");
 				line = br.readLine();
-				gui.textArea.append(line + "/n");
 			}
 			br.close();
 
@@ -62,6 +62,7 @@ public class Function_file
 			{
 				FileWriter fw = new FileWriter( fileAddress + fileName );
 				fw.write(gui.textArea.getText());
+				gui.window.setTitle(fileName);
 				fw.close();
 			}
 			catch(Exception e)
@@ -91,5 +92,10 @@ public class Function_file
 		{
 			System.out.println("File can not save");
 		}
+	}
+
+	public void exit()
+	{
+		System.exit(0);
 	}
 }
