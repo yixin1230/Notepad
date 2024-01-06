@@ -19,8 +19,15 @@ javac *.java
 java GUI
 ```
 ## Note for this project
+<br>
 
-```setDefaultCloseOperation(JFrane.EXIT_ON_CLOSE)``` is a method used to specify the default close operation for a JFrame.
+```setDefaultCloseOperation(JFrane.EXIT_ON_CLOSE)``` :
+- A method used to specify the default close operation for a JFrame.
 - This method is typically used to define what happens when the user clocks the close button(the 'X' button) on the window's title bar.
 <br>
 
+```BufferedReader```:
+- A class which reads text from a character-input stream
+  <br>
+- ```readLine()```: method of BufferedReader class in Java is used to read one line text at a time. The end of a line is to be understood by '\n' or '/r' or EOF. No parameter. Return a String
+- 
