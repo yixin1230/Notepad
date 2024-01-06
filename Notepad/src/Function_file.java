@@ -1,3 +1,4 @@
+import java.awt.*;
 
 public class Function_file {
 	GUI gui;
@@ -10,5 +11,11 @@ public class Function_file {
 	{
 		gui.textArea.setText("");
 		gui.window.setTitle("New");
+	}
+
+	public void open()
+	{
+		FileDialog fd = new FileDialog(gui.window,"Open", FileDialog.LOAD);
+		fd.setVisible(true);
 	}
 }
