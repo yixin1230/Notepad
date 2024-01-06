@@ -1,5 +1,6 @@
-# Notepad
+# :page_facing_up:Notepad
 ## Intro
+![Screenshot 2024-01-06 at 15 06 15](https://github.com/yixin1230/Notepad/assets/100164159/dc0823e4-d4bc-4378-83f8-f220b33ab15e)
 I developed a Notepad in java with the help of AWT/Swing with event handling to practice my Java programming skills<br>
 <br>
 I developed following function in this Notepad:
