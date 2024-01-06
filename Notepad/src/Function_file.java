@@ -52,7 +52,23 @@ public class Function_file
 	}
 	public void save()
 	{
-
+		if (fileName == null)
+		{
+			saveAs();
+		}
+		else
+		{
+			try
+			{
+				FileWriter fw = new FileWriter( fileAddress + fileName );
+				fw.write(gui.textArea.getText());
+				fw.close();
+			}
+			catch(Exception e)
+			{
+				System.out.println("File can not save");
+			}
+		}
 	}
 	public void saveAs()
 	{
