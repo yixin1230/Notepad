@@ -15,7 +15,7 @@ public class GUI implements ActionListener
 	//text
 	JTextArea textArea;
 	JScrollPane scrollPane;
-
+	boolean wordWrapOn = false;
 	//top menu bar
 	JMenuBar menuBar;
 	JMenu menuFile, menuEdit, menuFormat, menuCol;
@@ -24,7 +24,8 @@ public class GUI implements ActionListener
 	JMenuItem iNew, iOpen, iSave, iSaveAs, iExit;
 
 	//format menu
-	JMenuItem wordWrap, font, fontSize;
+	JMenuItem iWrap, iFontArial, iFontCSMS, iFontTNR, iFontSize8, iFontSize12,iFontSize16,iFontSize20,iFontSize24,iFontSize30;
+	JMenu font, fontSize;
 	//font menu
 	//fontSize menu
 
@@ -110,20 +111,62 @@ public class GUI implements ActionListener
 	}
 	public void createFormatMenu()
 	{
-		wordWrap = new JMenuItem("Word Wrap");
-		wordWrap.addActionListener(this);
-		wordWrap.setActionCommand("WordWrap");
-		menuFormat.add(wordWrap);
+		iWrap = new JMenuItem("Word Wrap: off");
+		iWrap.addActionListener(this);
+		iWrap.setActionCommand("WordWrap");
+		menuFormat.add(iWrap);
 
-		font = new JMenuItem("Font");
-		font.addActionListener(this);
-		font.setActionCommand("Font");
+		font = new JMenu("Font");
 		menuFormat.add(font);
 
-		fontSize = new JMenuItem("Font Size");
-		fontSize.addActionListener(this);
-		fontSize.setActionCommand("FontSize");
+		iFontArial = new JMenuItem("Arial");
+		iFontArial.addActionListener(this);
+		iFontArial.setActionCommand("Arial");
+		font.add(iFontArial);
+
+		iFontCSMS = new JMenuItem("Comic Scans MS");
+		iFontCSMS.addActionListener(this);
+		iFontCSMS.setActionCommand("Comic Scans MS");
+		font.add(iFontCSMS);
+
+		iFontTNR = new JMenuItem("Times New Roman");
+		iFontTNR.addActionListener(this);
+		iFontTNR.setActionCommand("Times New Roman");
+		font.add(iFontTNR);
+
+		fontSize = new JMenu("Font Size");
 		menuFormat.add(fontSize);
+
+		iFontSize8 = new JMenuItem("8");
+		iFontSize8.addActionListener(this);
+		iFontSize8.setActionCommand("size8");
+		fontSize.add(iFontSize8);
+
+		iFontSize12 = new JMenuItem("12");
+		iFontSize12.addActionListener(this);
+		iFontSize12.setActionCommand("size12");
+		fontSize.add(iFontSize12);
+
+		iFontSize16 = new JMenuItem("16");
+		iFontSize16.addActionListener(this);
+		iFontSize16.setActionCommand("size16");
+		fontSize.add(iFontSize16);
+
+		iFontSize20 = new JMenuItem("20");
+		iFontSize20.addActionListener(this);
+		iFontSize20.setActionCommand("size20");
+		fontSize.add(iFontSize20);
+
+		iFontSize24 = new JMenuItem("24");
+		iFontSize24.addActionListener(this);
+		iFontSize24.setActionCommand("size24");
+		fontSize.add(iFontSize24);
+
+		iFontSize30 = new JMenuItem("30");
+		iFontSize30.addActionListener(this);
+		iFontSize30.setActionCommand("size30");
+		fontSize.add(iFontSize30);
+
 	}
 	@Override
 	public void actionPerformed(ActionEvent e) {
@@ -136,6 +179,12 @@ public class GUI implements ActionListener
 			case "Save":file.save(); break;
 			case "SaveAs":file.saveAs(); break;
 			case "Exit":file.exit(); break;
+			case "WordWrap": forMat.wordWrap(); break;
+			case "size8": forMat.createFont(8); break;
+			case "size12": forMat.createFont(12); break;
+			case "size16": forMat.createFont(16); break;
+			case "size20": forMat.createFont(20); break;
+			case "size24": forMat.createFont(24); break;
 		}
 	}
 }
