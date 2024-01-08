@@ -26,12 +26,14 @@ public class GUI implements ActionListener
 	//format menu
 	JMenuItem iWrap, iFontArial, iFontCSMS, iFontTNR, iFontSize8, iFontSize12,iFontSize16,iFontSize20,iFontSize24,iFontSize28;
 	JMenu font, fontSize;
-	//font menu
-	//fontSize menu
+
+	//Color menu
+	JMenuItem iColor1, iColor2, iColor3;
 
 
 	Function_file file = new Function_file(this);
 	Function_format forMat = new Function_format(this);
+	Function_color color = new Function_color(this);
 
 	public static void main(String[] args)
 	{
@@ -45,8 +47,10 @@ public class GUI implements ActionListener
 		createMenuBar();
 		createFileMenu();
 		createFormatMenu();
+		createColorMenu();
 		forMat.selectedFont = "Arial";
 		forMat.createFont(16);
+		color.changeColor("black");
 		forMat.wordWrap();
 		window.setVisible(true);
 	}
@@ -169,7 +173,24 @@ public class GUI implements ActionListener
 		iFontSize28.addActionListener(this);
 		iFontSize28.setActionCommand("size28");
 		fontSize.add(iFontSize28);
+	}
 
+	public void createColorMenu()
+	{
+		iColor1 = new JMenuItem("White");
+		iColor1.addActionListener(this);
+		iColor1.setActionCommand("White");
+		menuCol.add(iColor1);
+
+		iColor2 = new JMenuItem("Black");
+		iColor2.addActionListener(this);
+		iColor2.setActionCommand("Black");
+		menuCol.add(iColor2);
+
+		iColor3 = new JMenuItem("Blue");
+		iColor3.addActionListener(this);
+		iColor3.setActionCommand("Blue");
+		menuCol.add(iColor3);
 	}
 	@Override
 	public void actionPerformed(ActionEvent e) {
@@ -191,6 +212,9 @@ public class GUI implements ActionListener
 			case "size16": forMat.createFont(16); break;
 			case "size20": forMat.createFont(20); break;
 			case "size28": forMat.createFont(28); break;
+			case "White" :color.changeColor("White"); break;
+			case "Black":color.changeColor("Black");break;
+			case "Blue":color.changeColor("Blue"); break;
 		}
 	}
 }
