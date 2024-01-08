@@ -3,7 +3,7 @@ import java.awt.*;
 public class Function_format {
 	GUI gui;
 	Font arial, comicSansMS, timesNewRoman;
-
+	String selectedFont;
 	Function_format(GUI gui)
 	{
 		this.gui = gui;
@@ -30,7 +30,19 @@ public class Function_format {
 	public void createFont(int fontSize)
 	{
 		arial = new Font("Arial", Font.PLAIN, fontSize);
-		comicSansMS = new Font("comic Sans MS", Font.PLAIN, fontSize);
-		timesNewRoman = new Font("Time New Roman", Font.PLAIN, fontSize);
+		comicSansMS = new Font("Comic Sans MS", Font.PLAIN, fontSize);
+		timesNewRoman = new Font("Times New Roman", Font.PLAIN, fontSize);
+		setFont(selectedFont);
+	}
+
+	public void setFont(String font)
+	{
+		selectedFont = font;
+		switch(selectedFont)
+		{
+			case "Arial": gui.textArea.setFont(arial);break;
+			case "Comic Sans MS": gui.textArea.setFont(comicSansMS);break;
+			case "Times New Roman": gui.textArea.setFont(timesNewRoman); break;
+		}
 	}
 }

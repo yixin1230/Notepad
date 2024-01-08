@@ -24,7 +24,7 @@ public class GUI implements ActionListener
 	JMenuItem iNew, iOpen, iSave, iSaveAs, iExit;
 
 	//format menu
-	JMenuItem iWrap, iFontArial, iFontCSMS, iFontTNR, iFontSize8, iFontSize12,iFontSize16,iFontSize20,iFontSize24,iFontSize30;
+	JMenuItem iWrap, iFontArial, iFontCSMS, iFontTNR, iFontSize8, iFontSize12,iFontSize16,iFontSize20,iFontSize24,iFontSize28;
 	JMenu font, fontSize;
 	//font menu
 	//fontSize menu
@@ -45,6 +45,9 @@ public class GUI implements ActionListener
 		createMenuBar();
 		createFileMenu();
 		createFormatMenu();
+		forMat.selectedFont = "Arial";
+		forMat.createFont(16);
+		forMat.wordWrap();
 		window.setVisible(true);
 	}
 
@@ -124,9 +127,9 @@ public class GUI implements ActionListener
 		iFontArial.setActionCommand("Arial");
 		font.add(iFontArial);
 
-		iFontCSMS = new JMenuItem("Comic Scans MS");
+		iFontCSMS = new JMenuItem("Comic Sans MS");
 		iFontCSMS.addActionListener(this);
-		iFontCSMS.setActionCommand("Comic Scans MS");
+		iFontCSMS.setActionCommand("Comic Sans MS");
 		font.add(iFontCSMS);
 
 		iFontTNR = new JMenuItem("Times New Roman");
@@ -162,10 +165,10 @@ public class GUI implements ActionListener
 		iFontSize24.setActionCommand("size24");
 		fontSize.add(iFontSize24);
 
-		iFontSize30 = new JMenuItem("30");
-		iFontSize30.addActionListener(this);
-		iFontSize30.setActionCommand("size30");
-		fontSize.add(iFontSize30);
+		iFontSize28 = new JMenuItem("28");
+		iFontSize28.addActionListener(this);
+		iFontSize28.setActionCommand("size28");
+		fontSize.add(iFontSize28);
 
 	}
 	@Override
@@ -180,11 +183,14 @@ public class GUI implements ActionListener
 			case "SaveAs":file.saveAs(); break;
 			case "Exit":file.exit(); break;
 			case "WordWrap": forMat.wordWrap(); break;
+			case "Arial": forMat.setFont(command);break;
+			case "Comic Sans MS": forMat.setFont("Comic Sans MS");break;
+			case "Times New Roman": forMat.setFont("Times New Roman");break;
 			case "size8": forMat.createFont(8); break;
 			case "size12": forMat.createFont(12); break;
 			case "size16": forMat.createFont(16); break;
 			case "size20": forMat.createFont(20); break;
-			case "size24": forMat.createFont(24); break;
+			case "size28": forMat.createFont(28); break;
 		}
 	}
 }
