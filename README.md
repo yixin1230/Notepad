@@ -8,6 +8,7 @@ I developed following function in this Notepad:
 - Users can open the existing text files
 - Users can save the text file on their machine
 - Users can also format their test on different font-styles, font-size.
+- Users can remove or repeat single or multiple typing actions.
 
 ## Compile the project
 ```
